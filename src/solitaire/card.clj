@@ -2,7 +2,7 @@
 
 (def suits #{:diamonds :hearts :clubs :spades})
 
-(def values #{:A :1 :2 :3 :4 :5 :6 :7 :8 :9 :10 :J :Q :K})
+(def values #{:A :2 :3 :4 :5 :6 :7 :8 :9 :10 :J :Q :K})
 
 (defn make [suit value]
   (assert (contains? values value))
@@ -42,3 +42,9 @@
 
 (defn color [card]
   (suit-color (suit card)))
+
+(def deck (for [suit suits
+                value values]
+            (make suit value)))
+
+(count deck)
